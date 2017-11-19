@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head runat="server">
+    <script>
+        $(document).ready(function () {
+            function loadData() {
+                // getData() will return the string of data...
+                document.getElementById('data').innerHTML = getData().replace('\n', '<br>');
+            }
+            //alert("hi")
+            EachWord = {};
+            $.get("file.txt", function(txt){
+                var headerTitles = ['Techniques:','Flavor Affinities','Possible substitutes:','Nutritional profile:','Calories:','Protein:','Volume:', 'Season:', 'Flavor:', 'Tip:', 'Botanical relatives:', 'What itis:','Gluten-free:', 'What’s healthful about it:'];
+
+                $('#output').html(txt);
+
+                //find all the "<br>"'s and add it to the linebyline array using split method
+                lineByLine =txt.split('<br>');
+                //var tokens = x.split(new RegExp(separators.join('|'), 'g'));
+                var flavor = lineByLine[0];
+                var Flavors = [];
+                var VolumeText = "";
+                var SeasonText = "";
+                var FlavorText = "";
+                var TechniquesText = "";
+                var Flavor_AffinitiesText = "";
+                var Possible_substitutesText = "";
+                var Nutritional_profileText = "";
+                var CaloriesText = "";
+                var ProteinText = "";
+                var Gluten_freeText = "";
+                var TipsText = "";
+                var What_it_isText = "";
+                var Whats_healthful_about_itText = "";
+                var BRText = "";
+                Flavors.push({
+                    Name: flavor,
+                    Volume: VolumeText,
+                    Season: SeasonText,
+                    Flavor: FlavorText,
+                    Techniques: TechniquesText,
+                    Flavor_Affinities: Flavor_AffinitiesText,
+                    Possible_substitutes: Possible_substitutesText,
+                    Nutritional_profile: Nutritional_profileText,
+                    Calories: CaloriesText,
+                    Protein: ProteinText,
+                    Gluten_free: Gluten_freeText,
+                    Tips: TipsText,
+                    What_it_is:What_it_isText,
+                    Whats_healthful_about_it: Whats_healthful_about_itText,
+                    Botanical_relatives: BRText
+                });
+                console.log(Flavors);
+
+
+                $.each(lineByLine, function() {
+                    for (var i = 0; i < headerTitles.length; i++) {
+                        if (this.indexOf(headerTitles[i]) >= 0) {
+                            switch (headerTitles[i]) {
+                                case 'Volume:' :
+                                    VolumeText= this.split(headerTitles[i])[1];
+                                    //use 0 get whatever is on the left side of split
+                                    VolumeText= this.split("What itis:")[0];
+                                    //get whatever is on the right side of the split
+                                    VolumeText= VolumeText.split("Volume:")[1];
+
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name== flavor) {
+                                            Flavors[k].Volume = VolumeText;
+                                            console.log(Flavors);
+                                            //alert(VolumeText)
+
+                                        }
+                                    }
+                                    break;
+                                case 'Season:':
+                                   SeasonText= this.split(headerTitles[i])[1];
+                                   for(var k = 0; k < Flavors.length; k++) {
+                                       if (Flavors[k].Name == flavor) {
+                                           Flavors[k].Season = SeasonText;
+                                           //console.log(Flavors);
+                                       }
+                                   }
+                                   break;
+                                case 'Flavor:':
+                                    //FlavorText= this.split(headerTitles[i])[0];
+                                    FlavorText= this.split("Volume:")[0];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Flavor = FlavorText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'Tip:':
+                                    TipText= this.split(headerTitles[i])[1];
+                                    TipText= TipText.split("Botanical relatives:")[0];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Tips = TipText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'Botanical relatives:':
+                                    BRText= this.split(headerTitles[i])[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Botanical_relatives = BRText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'Nutritional profile:' :
+                                    Nutritional_profileText= this.split(headerTitles[i])[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name== flavor) {
+                                            Flavors[k].Nutritional_profileText = Nutritional_profileText;
+                                            //console.log(Flavors);
+
+                                        }
+                                    }
+                                    break;
+                                case 'Possible substitutes:':
+                                    Possible_substitutesText= this.split(headerTitles[i])[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Possible_substitutes = Possible_substitutesText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'What itis:':
+                                    What_it_isText= this.split(headerTitles[i])[1];
+                                    //FlavorText= this.split("Volume:")[0];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].What_it_is = What_it_isText;
+                                            //alert(What_it_is);
+                                        }
+                                    }
+                                    break;
+                                case 'Calories:':
+                                    CaloriesText= this.split(headerTitles[i])[1];
+                                    //TipText= TipText.split("Botanical relatives:")[0];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Tips = CaloriesText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'Protein:':
+                                    ProteinText= this.split(headerTitles[i])[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Season = ProteinText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'What’s healthful about it:':
+                                    Whats_healthful_about_itText= this.split(headerTitles[i])[1];
+                                    //Whats_healthful_about_itText= this.split("What’s healthful about it:")[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Flavor = Whats_healthful_about_itText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'Gluten-Free:':
+                                    Gluten_freeText= this.split(headerTitles[i])[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Tips = Gluten_freeText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+                                    break;
+                                case 'Flavor Affinities':
+                                    Flavor_AffinitiesText= this.split(headerTitles[i])[1];
+                                    for(var k = 0; k < Flavors.length; k++) {
+                                        if (Flavors[k].Name == flavor) {
+                                            Flavors[k].Botanical_relatives = Flavor_AffinitiesText;
+                                            //console.log(Flavors);
+                                        }
+                                    }
+
+                            }
+                            //This pusher all the flavore information to the json arrat
+
+                            //console.log(Flavors);
+                        }
+                        //alert(this);
+                    }
+                })}, "text").done(function() {
+                console.log( "second success" );
+            }).fail(function(XHR, textStatus, errorThrown) {
+                console.log(XHR.responseText, errorThrown, textStatus );
+            });
+
+        })
+    </script>
+</head>
+<body>
+
+<div>
+    <h> <u>File Contents</u></h>
+    <p class="white-space:pre;" id="output"></p>
+</div>
+
+
+</body>
+</html>

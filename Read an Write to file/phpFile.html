@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head runat="server">
+    <script type="application/javascript" charset="utf-8">
+        var textByLine = null;
+        var FlavorAffOrDishes;
+        var oldflavor = "";
+        var seenFA=false;
+        var seenDishes=false;
+        var seenBlankLine = false;
+
+        var Flavors = {
+            "A":[],
+            "B":[],
+            "C":[],
+            "D":[],
+            "E":[],
+            "F":[],
+            "G":[],
+            "H":[],
+            "I":[],
+            "J":[],
+            "K":[],
+            "L":[],
+            "M":[],
+            "N":[],
+            "O":[],
+            "P":[],
+            "Q":[],
+            "R":[],
+            "S":[],
+            "T":[],
+            "U":[],
+            "V":[],
+            "W":[],
+            "X":[],
+            "Y":[],
+            "Z":[]
+        };
+        var lookahead, oldflavor, FlavorAffOrDishes;
+        var lookaheadTwoSpots,lookaheadfourSpots,lookaheadthreeSpots,lookaheadfiveSpots;
+        $(document).ready(function () {
+
+            //Prototype function to check for all uppercase letters in String
+            String.prototype.isUpperCase = function() {
+                return this.valueOf().toUpperCase() === this.valueOf();
+            };
+            //Function that's pulls and reads the text file then sends it to be coverted to JSON Object
+            $.get("FullList.txt", function(data) {
+                textByLine = data.split("\n");
+                convertToJSON(textByLine);
+            });
+
+            //function that converts al the text from the text file to a JSON array
+            function convertToJSON(fileByLine) {
+                // console.log(fileByLine);
+                var OldLine;
+                var Flavor;
+                var flavors = 0;
+                var Oldflavor ="";
+                $.each(fileByLine, function(i, val) {
+                    //FlavorAffOrDishes = true;
+                    //newline = val;
+                    //console.log( val);
+                    LineNoTrim = $.trim(val);
+                    OldLineNoTrim =fileByLine[i - 1];
+                    Line = $.trim(val);
+                    OldLine =  $.trim(fileByLine[i - 1]); //
+                    lookahead = $.trim(fileByLine[i + 1]); //looks ahead 1 line
+                    lookaheadTwoSpots = $.trim(fileByLine[i + 2]); //looks ahead 2 lines
+                    lookaheadthreeSpots = $.trim(fileByLine[i + 3]); //looks ahead 2 lines
+                    lookaheadfourSpots = $.trim(fileByLine[i + 4]); //looks ahead 2 lines
+                    lookaheadfiveSpots = $.trim(fileByLine[i + 5]); //looks ahead 2 lines
+
+                    //This loop run as long as there is an previous line to be used
+                    while (OldLine || OldLine=="") {
+                        //Checks to see if the oldline is this string in order to denote new page
+                        if (OldLine == '"****** DEMO - www.ebook-converter.com*******"') {
+                            //console.log("NEW PAGE! \n" + Line);
+                            //the next 3 ifs check if oldline is that string then check the current line to see if it is a Flavor name title
+                            if (Line.includes("(") && lookahead.includes(")") && !lookahead.includes(":")) {
+                                Line = Line + " " + lookahead;
+                                Flavor = Line
+                                //console.log("Flavor Name: " + Flavor );
+                                flavors += 1; //add 1 to the number of flavors
+                                //add flavor to list
+                                Alphabetize(Flavor)
+                            }
+                            else if ((Line.includes("(") && lookaheadTwoSpots.includes(")" && !Line.includes(")")) && (!lookaheadTwoSpots.includes(":") && !lookahead.includes(":")) )) {
+                                Line = Line + " " + lookahead + " " + lookaheadTwoSpots;
+                                Flavor = Line
+                                //console.log("Flavor Name: " + Flavor );
+                                flavors += 1; //add 1 to the number of flavors
+                                //add flavor to list
+                                Alphabetize(Flavor)
+                            }
+                            else if ((Line.isUpperCase() || Line.includes("(", ")"))) {
+                                Flavor = Line;
+                                //alert("Flavor Name: " + Flavor );
+                                flavors += 1; //add 1 to the number of flavors
+                                //add flavor to list
+                                Alphabetize(Flavor)
+                            }
+
+                            if (flavors == 1)
+                                console.log("There is " + flavors + " flavor");
+                            else
+                                console.log("There are " + flavors + " flavors");
+                        }
+
+                        FlavorProf(Flavor, Line);
+
+                        if (OldLine.length < 1) {
+                            seenBlankLine = true;
+                        }
+
+                        if(seenBlankLine==true || (!Line.includes("+") && !Line.includes(":") && (Oldflavor || Oldflavor =="")) ){
+                            if (Line.includes("Flavor Affinities")) seenFA=true;
+                            if (Line.includes("Dishes")) seenDishes=true;
+                            if(Oldflavor == Flavor ){
+                                if(seenBlankLine==true && seenFA == false && seenDishes == false && Line != '"****** DEMO - www.ebook-converter.com*******"' ){
+                                    //console.log("Previous Line >>> " + OldLine +"\ningredient >>> " + Line + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor +
+                                      // "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
+                                    addIngredients(Line, Flavor);
+                                }
+                                //else{
+                                   //console.log("Previous Line >>> " + OldLine +"\ningredient >>> " + Line + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor +
+                                     //  "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
+                                //}
+                            }
+                            else{
+                                seenFA = false;
+                                seenDishes = false;
+                                if (OldLine.length < 1)
+                                    seenBlankLine = true;
+                                    //console.log(OldLine.length)
+                                else
+                                    seenBlankLine = false;
+                                //console.log("FLAVOR CHANGE! \n" + "Previous Line >>> " + OldLine + "\nCurrent line >>> " + Line +
+                                   // "\nNew Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor+
+                                    //"\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
+                                //console.log("FLAVOR CHANGE! \n" +
+                                  //  "\nNew Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor);
+                            }
+                            Oldflavor = Flavor;
+                        }
+                        OldLine=null;
+                     }
+                });
+                console.log(fileByLine);
+            }
+
+            function Alphabetize(Flavor){
+                //create function that aphabetizes the list
+                //checks to see if first letter is A
+                if(Flavor.charAt(0) == "A" ){
+                    Flavors.A.push({
+                        "name": Flavor
+                    });
+                    
+
+                }
+                else if(Flavor.charAt(0) == "B" ){
+                    Flavors.B.push({
+                        "name": Flavor
+                    });
+
+                }
+                else if(Flavor.charAt(0) == "C" ){
+                    Flavors.C.push({
+                        "name": Flavor
+                    });
+                    
+
+                }
+                else if(Flavor.charAt(0) == "D" ){
+                    Flavors.D.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "E" ){
+                    Flavors.E.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "F" ){
+                    Flavors.F.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "G" ){
+                    Flavors.G.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "H" ){
+                    Flavors.H.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "I" ){
+                    Flavors.I.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "J" ){
+                    Flavors.J.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "K" ){
+                    Flavors.K.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "L" ){
+                    Flavors.L.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "M" ){
+                    Flavors.M.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "N" ){
+                    Flavors.N.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "O" ){
+                    Flavors.O.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "P" ){
+                    Flavors.P.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "Q" ){
+                    Flavors.Q.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "R" ){
+                    Flavors.R.push({
+                        "name": Flavor
+                    });
+                    ;
+
+                }
+                else if(Flavor.charAt(0) == "S" ){
+                    Flavors.S.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "T" ){
+                    Flavors.T.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "U" ){
+                    Flavors.U.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "V" ){
+                    Flavors.V.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "W" ){
+                    Flavors.W.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "X" ){
+                    Flavors.X.push({
+                        "name": Flavor
+                    });
+                    ;
+                }
+                else if(Flavor.charAt(0) == "Y" ){
+                    Flavors.Y.push({
+                        "name": Flavor
+                    });
+                    
+
+                }
+                else if(Flavor.charAt(0) == "Z" ){
+                    Flavors.Z.push({
+                        "name": Flavor
+                    });
+                    
+                }
+                else{
+                    console.log("DID NOT ADD " + Flavor + ", ITS NOT A FLAVOR")
+                }
+                //console.log("The added flavor is:"+Flavor)
+                console.log(Flavors);
+            }
+            function FlavorProf(Flavor, Line){
+                if(Line.includes("Flavor:") ){
+                    if(!lookahead.includes(":") && !lookaheadTwoSpots.includes(":")){
+                        FlavorProfile = Line + lookahead  + lookaheadTwoSpots;
+                        //console.log( Flavor+ "\n" + FlavorProfile);
+                        letter = Flavor.charAt(0);
+                        FlavorProfile = FlavorProfile.replace("Flavor: ", "");
+                        addItem(Flavor, FlavorProfile, letter, "flavor" )
+                    }
+                    else if(!lookahead.includes(":")){
+                        FlavorProfile = Line + lookahead ;
+                        //console.log(Flavor+ "\n" +FlavorProfile);
+                        letter = Flavor.charAt(0);
+                        FlavorProfile = FlavorProfile.replace("Flavor: ", "");
+                        addItem(Flavor, FlavorProfile, letter, "flavor" )
+                    }
+                    else
+                    {
+                        FlavorProfile = Line;
+                        //console.log(Flavor+ "\n" +FlavorProfile );
+                        letter = Flavor.charAt(0);
+                        FlavorProfile = FlavorProfile.replace("Flavor: ", "");
+                        addItem(Flavor, FlavorProfile, letter, "flavor")
+                    }
+                }
+                else if(Line.includes("Volume:") ){
+                    VolumeText = Line;
+                    //console.log(Flavor+ "\n" +VolumeText );
+                    letter = Flavor.charAt(0);
+                    VolumeText = VolumeText.replace("Volume: ", "");
+                    addItem(Flavor, VolumeText, letter, "volume" )
+                }
+                else if(Line.includes("Season:") ){
+                    SeasonText = Line;
+                    //console.log(Flavor+ "\n" +SeasonText );
+                    letter = Flavor.charAt(0);
+                    SeasonText = SeasonText.replace("Season: ", "");
+                    addItem(Flavor, SeasonText, letter, "Season" )
+                }
+                else if(Line.includes("What it is:") ){
+                    What_it_isText = Line;
+                    //console.log(Flavor+ "\n" +What_it_isText );
+                    letter = Flavor.charAt(0);
+                    What_it_isText = What_it_isText.replace("What it is: ", "");
+                    addItem(Flavor, What_it_isText, letter, "What it is" )
+                }
+                else if(Line.includes("Techniques:") ){
+                    TechniquesText = Line;
+                    //console.log(Flavor+ "\n" +What_it_isText );
+                    letter = Flavor.charAt(0);
+                    TechniquesText = TechniquesText.replace("Techniques: ", "");
+                    addItem(Flavor, TechniquesText, letter, "Techniques" )
+                }
+                else if(Line.includes("Tips:") ){
+                    if(!Line.includes(".")){
+                        TipsText = Line+ " " + lookahead;
+                        if(!lookahead.includes(".") || lookahead.slice(-1) != "."){
+                            TipsText = TipsText+ " " + lookaheadTwoSpots;
+                            if(!lookaheadTwoSpots.includes(".") || lookaheadTwoSpots.slice(-1) != "." ){
+                                TipsText = TipsText+ " " + lookaheadthreeSpots;
+                            }
+                        }
+                    }
+                    else
+                        TipsText = Line;
+                   // console.log(Flavor+ "\n" +What_it_isText );
+                    letter = Flavor.charAt(0);
+                    TipsText = TipsText.replace("Tips: ", "");
+                    addItem(Flavor, TipsText, letter, "Tips" )
+                }
+                else if(Line.includes("Tip:") ){
+                    TipsText = Line;
+                    //console.log(Flavor+ "\n" +What_it_isText );
+                    letter = Flavor.charAt(0);
+                    TipsText = TipsText.replace("Tip: ", "");
+                    addItem(Flavor, TipsText, letter, "Tip" )
+                }
+                else if(Line.includes("Weather:") ){
+                    WeatherText = Line;
+                    //console.log(Flavor+ "\n" +What_it_isText );
+                    letter = Flavor.charAt(0);
+                    WeatherText = WeatherText.replace("Weather: ", "");
+                    addItem(Flavor, WeatherText, letter, "Weather" )
+                }
+                else if(Line.includes("Nutritional profile:") ){
+                    Nutritionalprofile = Line;
+                   // console.log(Flavor+ "\n" +Nutritionalprofile );
+                    letter = Flavor.charAt(0);
+                    Nutritionalprofile = Nutritionalprofile.replace("Nutritional profile: ", "");
+                    addItem(Flavor, Nutritionalprofile, letter, "Nutritional profile" )
+                }
+                else if(Line.includes("Calories:") ){
+                    CaloriesText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    CaloriesText = CaloriesText.replace("Calories: ", "");
+                    addItem(Flavor, CaloriesText, letter, "Calories" )
+                }
+                else if(Line.includes("Protein:") ){
+                    ProteinText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    ProteinText = ProteinText.replace("Protein: ", "");
+                    addItem(Flavor, ProteinText, letter, "Protein" )
+                }
+                else if(Line.includes("Botanical Relatives:") ){
+                    BRText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    BRText = BRText.replace("Botanical Relatives: ", "");
+                    addItem(Flavor, BRText, letter, "Botanical Relatives" )
+                }
+                else if(Line.includes("Gluten-free:") ){
+                    GlutenFreeText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    GlutenFreeText = GlutenFreeText.replace("Gluten-free: ", "");
+                    addItem(Flavor, GlutenFreeText, letter, "Gluten-free" )
+                }
+                else if(Line.includes("What’s healthful about them:") ){
+                    WhatshealthfulText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    WhatshealthfulText = WhatshealthfulText.replace("What’s healthful about them: ", "");
+                    addItem(Flavor, WhatshealthfulText, letter, "What’s healthful about them" )
+                }
+                else if(Line.includes("Flavor Affinities:") ){
+                    FlavorAffinities = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    FlavorAffinities = FlavorAffinities.replace("Flavor Affinities: ", "");
+                    addItem(Flavor, FlavorAffinities, letter, "Flavor Affinities" )
+                }
+                else if(Line.includes("Timing:") ){
+                    TimingText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    TimingText = TimingText.replace("Timing: ", "");
+                    addItem(Flavor, TimingText, letter, "Timing" )
+                }
+                else if(Line.includes("Ratio:") ){
+                    RatioText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    RatioText = RatioText.replace("Ratio: ", "");
+                    addItem(Flavor, RatioText, letter, "Ratio" )
+                }
+                else if(Line.includes("Possible substitute:") ){
+                    SubstitutesText = Line;
+                    //console.log(Flavor+ "\n" +CaloriesText );
+                    letter = Flavor.charAt(0);
+                    SubstitutesText = SubstitutesText.replace("Possible substitute: ", "");
+                    addItem(Flavor, SubstitutesText, letter, "Possible substitute" )
+                }
+
+            }
+            function addItem(Flavor, profileItemText, letter, profileitem){
+               $.each(Flavors[letter], function(i, val) {
+                   // console.log(Flavors[letter][i]);
+                   switch(profileitem) {
+                       case "flavor":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Flavor = profileItemText;
+                           break;
+                       case "volume":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Volume = profileItemText;
+                           break;
+                       case "What it is":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].What_it_is = profileItemText;
+                           break;
+                       case "Season":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Season = profileItemText;
+                           break;
+                       case "Techniques":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Techniques = profileItemText;
+                           break;
+                       case "Flavor Affinities":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Flavor_Affinities = profileItemText;
+                           break;
+                       case "Protein":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Protein = profileItemText;
+                           break;
+                       case "Gluten-free":
+                           if (Flavors[letter][i].name == Flavor )
+                           break;
+                       case "What’s healthful about them":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Whats_healthful_about_it = profileItemText;
+                           break;
+                       case "Tips" || "Tip":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Tips = profileItemText;
+                           break;
+                       case "Botanical Relatives":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Botenical_Relatives = profileItemText;
+                           break;
+                       case "Nutritional profile":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Nutritional_profile = profileItemText;
+                           break;
+                       case "Calories":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Calories = profileItemText;
+                           break;
+
+                       case "Weather":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Weather = profileItemText;
+                           break;
+                       case "Ratio":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Ratio = profileItemText;
+                           break;
+                       case "Timing":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Timing = profileItemText;
+                           break;
+                       case "Possible substitute":
+                           if (Flavors[letter][i].name == Flavor )
+                               Flavors[letter][i].Possible_Substitute = profileItemText;
+                           break;
+                   }
+               })
+           }
+           function addIngredients(ingredient, flavor) {
+                //console.log("Add Ingredient >"+ingredient +" \nto Flavor >" + flavor);
+                letter = flavor.charAt(0);
+               $.each(Flavors[letter], function(i, val) {
+                   if (Flavors[letter][i].name == flavor && !Flavors[letter][i].Ingredients ) {
+                       Flavors[letter][i].Ingredients = [ingredient];
+                       //console.log("New flavor " + Flavors[letter][i].Ingredients);
+                       //Flavors[letter][i].flavor. = profileItemText;
+                   }
+                   else if(Flavors[letter][i].name == flavor && Flavors[letter][i].Ingredients){
+                       Flavors[letter][i].Ingredients.push(ingredient);
+                       //console.log("New flavors " + Flavors[letter][i].Ingredients);
+
+                   }
+               })
+           }
+
+        })
+    </script>
+</head>
+<body>
+
+<div>
+    <button>Press me and open the console</button><br>
+    <h> <u>File Contents</u></h>
+    <p class="white-space:pre;" id="output"></p>
+</div>
+
+
+
+</body>
+</html>
