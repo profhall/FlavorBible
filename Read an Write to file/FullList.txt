@@ -41,7 +41,7 @@ yogurt
 Flavor: sour, with earthy and/or musky notes of citrus, paprika,
 pepper, and/or turmeric
 Volume: quiet–moderate
-Tip: Used as much for its (yellow/orange) coloring as for its flavor
+Tips: Used as much for its (yellow/orange) coloring as for its flavor
 Possible substitutes: saffron (for color)
 
 beans
@@ -493,7 +493,7 @@ Flavor: sweet/salty, with a rich, dense, crunchy texture
 What they are: almonds from Spain
 Calories: 180 per 1-ounce serving
 Techniques: fry, raw
-Tip: Marcona almonds are richer, softer, and sweeter than
+Tips: Marcona almonds are richer, softer, and sweeter than
 California almonds.
 
 baked goods
@@ -4102,7 +4102,7 @@ flageolet beans + pistachios + wild rice
 "****** DEMO - www.ebook-converter.com*******"
 BEANS, FRENCH GREEN (aka HARICOTS
 VERTS)
-Tip: Haricots verts are smaller and more delicate than regular
+Tips: Haricots verts are smaller and more delicate than regular
 green beans, with a crisp texture.
 
 almonds
@@ -5580,8 +5580,7 @@ Function: cooling; stimulates appetite; promotes other tastes
 Tips: Bitterness relieves thirst. When a bitter component is
 added to a dish, it creates a sense of lightness. The hotter the
 food or drink, the lesser the perception of bitterness.
-"****** DEMO - www.ebook-converter.com*******"
-Examples of bitter foods:
+
 arugula
 baking powder and baking soda
 beans, lima
@@ -6099,7 +6098,7 @@ healed herself with comfrey.”
  —Hotel Fauchère (Milford, PA)
 "****** DEMO - www.ebook-converter.com*******"
 BOYSENBERRIES (see also BLACKBERRIES)
-Tip: Use like blackberries, one of the three berries (along with
+Tips: Use like blackberries, one of the three berries (along with
 raspberries and loganberries) of which boysenberries are a
 hybrid.
 "****** DEMO - www.ebook-converter.com*******"
@@ -6242,7 +6241,7 @@ Flavor: neutral, with a very crunchy texture
 Volume: quiet
 What it is: Japanese bread crumbs
 Calories: 110 per ½-cup serving
-Tip: Makes a crunchy crust for seitan and tofu or a coating for
+Tips: Makes a crunchy crust for seitan and tofu or a coating for
 deep-fried foods, e.g., vegetables
 
 artichokes
@@ -6488,7 +6487,7 @@ Nutritional profile: 60% carbs / 27% fat / 13% protein
 Calories: 20 per 1-cup serving (cooked)
 Protein: 1 gram
 Techniques: blanch, sauté, steam, stir-fry
-Tip: Opt for Chinese broccoli when you need a quick-cooking
+Tips: Opt for Chinese broccoli when you need a quick-cooking
 green.
 
 beets
@@ -7315,7 +7314,7 @@ turmeric
 greens + garlic + lime + peanuts + shallots
 "****** DEMO - www.ebook-converter.com*******"
 BUTTER, CLARIFIED (see also GHEE)
-Tip: Can be used for higher-temperature cooking, as solids have
+Tips: Can be used for higher-temperature cooking, as solids have
 been removed.
 "****** DEMO - www.ebook-converter.com*******"
 BUTTER
@@ -7414,7 +7413,8 @@ mayonnaise + mustard + olive oil + onions + oregano + paprika +
 parsley + salt + scallions + shallots + sour cream + sugar + tarragon +
 thyme + vinegar + Worcestershire sauce + yogurt
 "****** DEMO - www.ebook-converter.com*******"
-CABBAGE, IN GENERAL, OR MIXED CABBAGES
+CABBAGE, IN GENERAL, OR MIXED
+CABBAGES
 Season: autumn–winter
 Flavor: bitter/sweet, with pungent and/or peppery notes, and a
 crunchy texture
@@ -7833,7 +7833,8 @@ savoy cabbage + garlic + olive oil + parsley + rice + tomatoes
  Dressing
  —Manna (London)
 "****** DEMO - www.ebook-converter.com*******"
-CACAO OR CACAO NIBS (see also CHOCOLATE, DARK)
+CACAO OR CACAO NIBS (see also CHOCOLATE,
+DARK)
 Flavor: bitter, with notes of chocolate (and smoke, if roasted),
 and a crunchy texture
 Volume: moderate–loud
@@ -9822,7 +9823,7 @@ Volume: quiet–moderate
 Nutritional profile: 73% protein / 15% carbs / 12% fat
 Calories: 165 per 1-cup serving (lowfat)
 Protein: 28 grams
-Tip: Puree cottage cheese with lemon juice and herbs into a
+Tips: Puree cottage cheese with lemon juice and herbs into a
 sauce to pour over spaghetti or other pasta.
 Brand: Check out Nancy’s sour and complex low-fat organic
 cottage cheese, which is in a league of its own.
@@ -9894,7 +9895,7 @@ What it is: a fresh, unripened cheese
 Nutritional profile: 88% fat / 7% protein / 5% carbs
 Calories: 50 per 1-tablespoon serving
 Protein: 1 gram
-Tip: Opt for fat-free cream cheese.
+Tips: Opt for fat-free cream cheese.
 Possible Substitute: Neufchâtel
 
 apples
@@ -9970,7 +9971,7 @@ cream cheese + maple syrup + mascarpone
 cream cheese + spinach + sun-dried tomatoes
 "****** DEMO - www.ebook-converter.com*******"
 CHEESE, CASHEW NUT (VEGAN)
-Tip: Use as you would regular cream cheese.
+Tips: Use as you would regular cream cheese.
 Brand: Dr. Cow Tree Nut Cheeses (made with cashews or
 macadamia nuts)
 
@@ -10719,7 +10720,7 @@ pecorino cheese + arugula + walnuts
  —Plume (Washington, DC)
 "****** DEMO - www.ebook-converter.com*******"
 CHEESE, PROVOLONE
-Tip: Fry thinly sliced provolone (optionally topped with a
+Tips: Fry thinly sliced provolone (optionally topped with a
 sprinkle of smoked paprika) to a crisp for a quick bacon
 substitute on baked potatoes, salads, or sandwiches.
 
@@ -12218,7 +12219,7 @@ flavor, and remove them before serving.”
 Flavor: hot, with notes of pepper
 Volume: moderate–very loud
 Techniques: stuff (e.g., with cheese)
-Tip: Add jalapeños at the end of the cooking process.
+Tips: Add jalapeños at the end of the cooking process.
 
 apples
 avocados
@@ -12390,7 +12391,7 @@ cilantro, marjoram, and a little lime to perk it all up!”
 CHILES, SERRANO
 Flavor: hot/spicy, with savory notes
 Volume: loud–very loud
-Tip: Serranos are even hotter than jalapeños (but not as hot as
+Tips: Serranos are even hotter than jalapeños (but not as hot as
 habaneros).
 
 beans, e.g., pinto
@@ -13115,7 +13116,7 @@ and TANGERINES)
  CLOVES
 Flavor: bitter/sweet, with pungent/spicy notes
 Volume: loud
-Tip: Add early in cooking process.
+Tips: Add early in cooking process.
 Botanical relative: allspice
 
 allspice
@@ -13402,7 +13403,7 @@ Flavor: sweet, with notes of caramel, cream, maple syrup,
 molasses, and/or vanilla, and the rich texture of honey or molasses
 Volume: quiet
 What it is: sweetener
-Tip: Substitute for agave nectar, honey, or molasses.
+Tips: Substitute for agave nectar, honey, or molasses.
 Brand: Coconut Secret, Sweet Tree (both organic, raw)
 
 cereals, breakfast
@@ -13427,7 +13428,7 @@ flavored sweeteners like corn syrup.”
 Nutritional profile: 78% carbs / 13% protein / 9% fat
 Calories: 45 per 1-cup serving
 Protein: 2 grams
-Tip: Substitute for water in recipes (e.g., for smoothies) for
+Tips: Substitute for water in recipes (e.g., for smoothies) for
 added nutrients.
 
 almonds
@@ -14309,7 +14310,7 @@ cranberries + oranges + pears + pecans
  CRANBERRIES, DRIED
 Flavor: sweet/sour, with a chewy texture
 Volume: moderate–loud
-Tip: Look for dried cranberries sweetened with fruit juice.
+Tips: Look for dried cranberries sweetened with fruit juice.
 Possible substitutes: dried cherries (esp. sour), raisins
 
 allspice
@@ -14408,7 +14409,7 @@ BLANC)
 Flavor: sour, with a smooth texture
 Volume: moderate
 What it is: fresh, cultured cream
-Tip: Can be used to thicken sauces, because, unlike sour cream,
+Tips: Can be used to thicken sauces, because, unlike sour cream,
 it will not curdle when cooked.
 Possible substitutes: fromage blanc (which is made from milk),
 sour cream
@@ -15352,7 +15353,7 @@ dill + mushrooms + yogurt
 DILL SEEDS (see also DILL and DILL WEED)
 Flavor: sour, with pungent notes of anise and/or caraway
 Volume: moderate–loud
-Tip: Add early in the cooking process.
+Tips: Add early in the cooking process.
 Possible substitute: caraway seeds
 
 bay leaf
@@ -17915,7 +17916,7 @@ fromage blanc + garlic + herbs
 fromage blanc + granola + honey
 "****** DEMO - www.ebook-converter.com*******"
 FRUITS AND VEGETABLES, FROZEN
-Tip: Frozen fruits and vegetables are frequently more nutritious
+Tips: Frozen fruits and vegetables are frequently more nutritious
 than those purchased fresh that are a few days old.
 "****** DEMO - www.ebook-converter.com*******"
 FRUITS, DRIED (see APRICOTS, DRIED; CHERRIES, DRIED; CRANBERRIES, DRIED; CURRANTS, DRIED; PLUMS, DRIED; RAISINS, etc.)
@@ -18547,7 +18548,7 @@ vegetables, e.g., braised, root
 What it is: a protein composite found in wheat and other grains
 "****** DEMO - www.ebook-converter.com*******"
 GLUTEN-FREE
-Tip: Not all grains have gluten (as wheat does). Gluten-free
+Tips: Not all grains have gluten (as wheat does). Gluten-free
 grains include amaranth, buckwheat, millet, quinoa, rice,
 sorghum, teff, and wild rice.
 "****** DEMO - www.ebook-converter.com*******"
@@ -19022,7 +19023,7 @@ gigante beans + garlic + onions + parsley + tomatoes
 GREENS—IN GENERAL OR MIXED (see also ARUGULA; BOK CHOY; CABBAGE; CHARD, SWISS; GREENS, BEET; GREENS, BITTER; GREENS, COLLARD; GREENS, DANDELION; GREENS, SALAD; GREENS, TURNIP; KALE; LETTUCE; and SPINACH)
 What they are: green, leafy vegetable
 Techniques: blanch, boil, braise, raw, sauté, steam, stir-fry
-Tip: Cook quickly to retain nutrients.
+Tips: Cook quickly to retain nutrients.
 
 arugula
 basil
@@ -19041,7 +19042,6 @@ mustard
 nuts, e.g., walnuts
 OIL, OLIVE
 onions, e.g., green, red
-
 "****** DEMO - www.ebook-converter.com*******"
 pastas
 pepper, black
@@ -19071,9 +19071,7 @@ to do it with vegetables. A good example of a high-heat, fast-
 cooking dish we do now is the Chinese green choy sum. It
 gets a nice crispiness, it is barely cooked, and it gets tossed
 in a bowl and wilts on itself. If we cook the choy sum really
-low, it turns into a flat, dehydrated, crispy green.”
-"****** DEMO - www.ebook-converter.com*******"
-—AMANDA COHEN, DIRT CANDY (NEW YORK CITY)
+low, it turns into a flat, dehydrated, crispy green.”—AMANDA COHEN, DIRT CANDY (NEW YORK CITY)
 "****** DEMO - www.ebook-converter.com*******"
 GREENS, AMARANTH (LEAVES/STEMS, aka
 CALLALOO; see also LAMB’S-QUARTER and
@@ -19885,7 +19883,7 @@ Nutritional profile: 89% carbs / 8% protein / 3% fat
 Calories: 145 per 1-cup serving (cooked with water)
 Protein: 3 grams
 Techniques: bake, boil (about 15–40 minutes), simmer
-Tip: Look for coarse stone-ground grits, which contain bran and
+Tips: Look for coarse stone-ground grits, which contain bran and
 germ.
 
 butter
@@ -22674,7 +22672,7 @@ leeks + potatoes + watercress
 "****** DEMO - www.ebook-converter.com*******"
 LEGUMES (see also specific BEANS, CHICKPEAS,
 LENTILS, PEANUTS, PEAS, and SOYBEANS)
-Tip: Many chefs are experimenting with smoking legumes to
+Tips: Many chefs are experimenting with smoking legumes to
 enhance their “meatiness.”
 "****** DEMO - www.ebook-converter.com*******"
 Cooking Legumes
@@ -22783,7 +22781,7 @@ What they are: citrus fruit
 Nutritional profile: 63% carbs / 24% protein / 13% fat
 Calories: 20 per medium lemon (raw, with peel)
 Protein: 1 gram
-Tip: Use both the juice (for vitamin C) and the zest (for limonin
+Tips: Use both the juice (for vitamin C) and the zest (for limonin
 and limonene).
 Botanical relatives: grapefruit, kumquat, lime, orange
 
@@ -23015,7 +23013,7 @@ onions, or zucchini. I even grill them.”
 LEMONS, PRESERVED
 Flavor: salty/sour/umami, with citrus notes
 Volume: moderate–loud
-Tip: Either blanch in boiling water for a few seconds or rinse to
+Tips: Either blanch in boiling water for a few seconds or rinse to
 quiet the flavor.
 
 apricots, e.g., dried, fresh
@@ -23074,7 +23072,7 @@ preserved lemons + fennel + green olives
 LEMON THYME
 Flavor: sour, with notes of flowers, lemon, and thyme
 Volume: quieter–louder
-Tip: Lemon thyme is quieter than regular thyme.
+Tips: Lemon thyme is quieter than regular thyme.
 
 asparagus
 basil
@@ -23350,7 +23348,7 @@ Green lentils fall in-between.”
 LENTILS, BLACK (aka BELUGA)
 Flavor: earthy notes of nuts, with a chewy yet soft texture
 Volume: quiet–moderate
-Tip: Black lentils hold their shape when cooked.
+Tips: Black lentils hold their shape when cooked.
 Techniques: boil, braise
 Timing: Boil until tender, about 20–30 minutes.
 Ratio: 1:2¼ (1 cup lentils to 2¼ cups water)
@@ -23523,7 +23521,7 @@ Volume: moderate–loud (for lentils)
 Techniques: simmer
 Timing: Cook green lentils about 20–45 minutes.
 Ratio: 1:2½ (1 cup lentils to 2½ cups water)
-Tip: These are good in salads, as they keep their firm texture.
+Tips: These are good in salads, as they keep their firm texture.
 
 baked dishes
 bay leaf
@@ -23606,7 +23604,7 @@ Volume: quiet–moderate
 Techniques: boil, puree, simmer, stew
 Timing: Cook red lentils until tender, about 10–30 minutes.
 Ratio: 1:2 (1 cup red lentils to 2 cups water)
-Tip: Red lentils cook quickly, even without presoaking.
+Tips: Red lentils cook quickly, even without presoaking.
 
 asafoetida powder
 arugula
@@ -24164,7 +24162,7 @@ Volume: moderate
 Nutritional profile: 86% carbs / 8% protein / 6% fat
 Calories: 20 per lime
 Botanical relatives: grapefruit, kumquat, lemon, orange
-Tip: Grind dried limes to make a powder that can be sprinkled
+Tips: Grind dried limes to make a powder that can be sprinkled
 on dishes like a spice.
 
 almonds
@@ -24609,7 +24607,7 @@ lychees + honey + lime
 MACA, MACA POWDER, OR MACA ROOT
 Flavor: notes of butterscotch, malt, and/or nuts
 Volume: quiet–moderate
-Tip: Use it to enhance the creaminess of smoothies.
+Tips: Use it to enhance the creaminess of smoothies.
 
 baked goods, e.g., breads, cookies, muffins
 bananas
@@ -24653,7 +24651,7 @@ maca + almond butter + coconut milk + dates + vanilla
  —Pomegranate Café (Phoenix)
 "****** DEMO - www.ebook-converter.com*******"
 MACARONI AND CHEESE
-Tip: Many of the best vegan versions of mac-n-cheese
+Tips: Many of the best vegan versions of mac-n-cheese
 incorporate whole-grain macaroni and some combination of chili
 pepper flakes + cornstarch + Dijon mustard + garlic + milk
 (e.g., soy) + nutritional yeast + oil (e.g., canola, soy) + paprika
@@ -25669,7 +25667,7 @@ eggplant + garlic + parsley + tahini
 "****** DEMO - www.ebook-converter.com*******"
 MILK, e.g.,WHOLE or NONFAT—IN
 GENERAL
-Tip: Vegans can use nondairy milks (e.g., almond, hempseed,
+Tips: Vegans can use nondairy milks (e.g., almond, hempseed,
 rice, soy, etc.) when baking or making French toast, with
 breakfast cereals, and in smoothies.
 "****** DEMO - www.ebook-converter.com*******"
@@ -25944,7 +25942,7 @@ well.”
 Flavor: sweet, with notes of rice, and a light-bodied texture
 Volume: moderate
 Lactose-free: yes
-Tip: Given its sweetness, it works better in desserts than in
+Tips: Given its sweetness, it works better in desserts than in
 savory dishes.
 Brand: Rice Dream
 
@@ -25999,13 +25997,8 @@ raspberries
 salad dressings
 sauces, e.g., creamy, pasta
 smoothies
-"****** DEMO - www.ebook-converter.com*******"
-tofu, e.g., silken
+tofu, e.g., silken
 vanilla
-"****** DEMO - www.ebook-converter.com*******"
- Dishes
- Vanilla–Kaffir Lime–Soy Milk Panna Cotta with Mango and Raspberries
- —Charlie Trotter’s Restaurant C at OneandOnly Palmilla (Los Cabos, Mexico)
 "****** DEMO - www.ebook-converter.com*******"
 MILLET
 [MILL-let]
@@ -28719,7 +28712,7 @@ Nutritional profile: 86% carbs / 8% protein / 6% fats
 Calories: 65 per 1-cup serving (raw, sliced)
 Protein: 2 grams
 Techniques: bake, broil, grill, poach, raw, sauté
-Tip: Opt for organic nectarines.
+Tips: Opt for organic nectarines.
 Botanical relatives: apricots, peaches, plums
 Possible substitute: peaches
 
@@ -29038,7 +29031,7 @@ Flavor: notes of green tea, and a chewy texture
 Volume: quiet–moderate
 What they are: soba noodles to which green tea has been added
 Technique: Cover with boiling water for about 4–5 minutes.
-Tip: These are considered a delicacy and served on special
+Tips: These are considered a delicacy and served on special
 occasions.
 
 cilantro
@@ -29480,7 +29473,7 @@ Nutritional profile: 87% carbs / 12% protein / 1% fats
 Calories: 230 per 1-cup serving (cooked)
 Protein: 7 grams
 Timing: Boil until tender, about 2 minutes.
-Tip: Remove starch after cooking by rinsing in cold water.
+Tips: Remove starch after cooking by rinsing in cold water.
 
 bell peppers
 carrots
@@ -30062,7 +30055,7 @@ vegetables, e.g., roasted, sautéed
 Flavor: notes of almonds
 Volume: quiet–moderate
 Techniques: bake, raw
-Tip: Use for medium- (e.g., baking, sautéing) to high-
+Tips: Use for medium- (e.g., baking, sautéing) to high-
 temperature (e.g., frying) cooking.
 Brand: La Tourangelle
 
@@ -30086,7 +30079,7 @@ vinegar, e.g., champagne
 OIL, ARGAN
 Flavor: notes of cream, fruit, and/or nuts, with a creamy texture
 Volume: quieter (untoasted)–louder (toasted)
-Tip: Use only for finishing dishes, not for cooking.
+Tips: Use only for finishing dishes, not for cooking.
 Possible substitutes: almond oil, hazelnut oil
 
 almonds and almond paste
@@ -30138,7 +30131,7 @@ argan oil + lentils + tomatoes
 Flavor: rich, with notes of avocado and/or butter
 Volume: quiet
 Techniques: emulsify, fry, grill, raw, roast, sauté, stir-fry
-Tip: Use for medium-(e.g., baking, sautéing) to high-
+Tips: Use for medium-(e.g., baking, sautéing) to high-
 temperature (e.g., frying, stir-frying) cooking.
 
 avocado
@@ -30239,7 +30232,7 @@ spicy dishes
 "****** DEMO - www.ebook-converter.com*******"
  OIL, CHILI
 What it is: vegetable (e.g., peanut) oil infused with chiles
-Tip: Add at the end of the cooking process, to finish a dish and
+Tips: Add at the end of the cooking process, to finish a dish and
 add heat.
 
 Asian cuisines
@@ -30630,7 +30623,7 @@ vinegar, e.g., rice, wine
 OIL, PISTACHIO
 Flavor: notes of pistachios
 Volume: quiet–moderate
-Tip: Use for medium-temperature cooking (e.g., baking,
+Tips: Use for medium-temperature cooking (e.g., baking,
 sautéing).
 
 apples
@@ -30880,7 +30873,7 @@ risottos
 white truffle oil + mushrooms + risotto
 "****** DEMO - www.ebook-converter.com*******"
 OIL, VEGETABLE
-Tip: Skip the formerly ubiquitous generically named “vegetable
+Tips: Skip the formerly ubiquitous generically named “vegetable
 oil” in favor of an oil with a specific name, so you can be quite
 sure what you’re getting.
 "****** DEMO - www.ebook-converter.com*******"
@@ -31607,7 +31600,7 @@ red onions + red wine vinegar + thyme
  —Natural Selection (Portland, OR)
 "****** DEMO - www.ebook-converter.com*******"
 ONIONS, SPRING (see also SCALLIONS)
-Tip: Spring onions refers to both green onions (small and mild)
+Tips: Spring onions refers to both green onions (small and mild)
 and scallions (smaller and milder), which are immature onions.
 They can typically be used interchangeably.
 "****** DEMO - www.ebook-converter.com*******"
@@ -32031,7 +32024,7 @@ oregano + lemon juice + olive oil + marinades
 Flavor: bitter, with pungent floral, herbal, lemon, and/or
 marjoram notes
 Volume: loud
-Tip: Add at the beginning of cooking.
+Tips: Add at the beginning of cooking.
 Possible substitute: epazote
 
 beans, e.g., black
@@ -32057,7 +32050,7 @@ tacos
 Tex-Mex cuisine
 "****** DEMO - www.ebook-converter.com*******"
 ORGANIC PRODUCE
-Tip: Opt for organic produce whenever possible—and definitely
+Tips: Opt for organic produce whenever possible—and definitely
 when you buy one of the Environmental Working Group
 (EWG)’s so-called “Dirty Dozen Plus” fruits or vegetables,
 which are those most affected by chemical contamination, i.e.,
@@ -34270,7 +34263,7 @@ phyllo + goat cheese + honey
  —Millennium (San Francisco)
 "****** DEMO - www.ebook-converter.com*******"
 PIECRUSTS, VEGAN
-Tip: Think creatively when coming up with healthful, delicious
+Tips: Think creatively when coming up with healthful, delicious
 vegan piecrusts based on ground fruits, nuts, spices, and more.
 You can press a crust based on one of the following
 combinations into your next pie plate:
@@ -34711,7 +34704,7 @@ rice, e.g., jasmine
 Flavor: neutral, with a starchy texture
 Volume: quiet–moderate
 Techniques: bake, boil, deep-fry, fry, mash, sauté, stew
-Tip: Look for green plantains without any yellow.
+Tips: Look for green plantains without any yellow.
 
 African cuisine
 beans, e.g., black, pinto
@@ -34920,7 +34913,7 @@ Nutritional profile: 96% carbs / 3% protein / 1% fats
 Calories: 210 per ½-cup serving (pitted dried plums)
 Protein: 2 grams
 Techniques: poach, raw
-Tip: Substitute puree of dried plums for fat or oil in baking.
+Tips: Substitute puree of dried plums for fat or oil in baking.
 
 ALMONDS
 apples
@@ -35502,7 +35495,7 @@ Worcestershire sauce, vegetarian
 "****** DEMO - www.ebook-converter.com*******"
 POTATOES, HIGH-STARCH (e.g., IDAHO,
 RUSSET)
-Tip: High-starch potatoes leave a creamy white liquid on the
+Tips: High-starch potatoes leave a creamy white liquid on the
 knife when cut; the greater the residue, the higher the level of
 starch.
 Techniques: bake, fry, mash
@@ -35618,7 +35611,7 @@ salads, e.g., potato
 sour cream
 "****** DEMO - www.ebook-converter.com*******"
 PRESSURE-COOKING
-Tip: Cooks foods 50–70 percent faster than traditional methods
+Tips: Cooks foods 50–70 percent faster than traditional methods
 —which is especially helpful when it comes to slow-cooking
 foods such as dried beans and grains.
 
@@ -36619,7 +36612,7 @@ Nutritional profile: 95% carbs / 3% protein / 2% fats
 Calories: 120 per ¼-cup serving (seeded)
 Protein: 1 gram
 Techniques: bake, raw, steam, stew
-Tip: Opt for organic, sun-dried raisins; sun-drying helps
+Tips: Opt for organic, sun-dried raisins; sun-drying helps
 maintain the nutrients.
 
 allspice
@@ -37050,7 +37043,7 @@ Nutritional profile: 92% carbs / 7% protein / 1% fat
 Calories: 120 per ½-cup of white rice (medium-grain, cooked)
 Protein: 2 grams
 Techniques: boil, steam
-Tip: The darker the rice, the greater the nutrients (i.e., black
+Tips: The darker the rice, the greater the nutrients (i.e., black
 > brown > white).
 
 amaranth
@@ -37471,7 +37464,7 @@ black rice + kimchi + scallions
 black rice + sesame oil + soy sauce
 "****** DEMO - www.ebook-converter.com*******"
 RICE, BOMBA (see also SPANISH CUISINE)
-Tip: Bomba rice absorbs 30 percent more liquid than other rices.
+Tips: Bomba rice absorbs 30 percent more liquid than other rices.
 
 asparagus
 garlic
@@ -37689,7 +37682,7 @@ yogurt
 jasmine rice + coconut + lemon
 "****** DEMO - www.ebook-converter.com*******"
 RICE, LONG-GRAIN (see also RICE, BASMATI and RICE, JASMINE)
-Tip: “Long-grain” refers to grains that are at least three times as
+Tips: “Long-grain” refers to grains that are at least three times as
 long as they are wide. Opt for brown long-grain rice, which is
 higher in fiber than white rice, for more nutrients.
 
@@ -37716,7 +37709,7 @@ sushi, vegetarian, e.g., nori rolls
 Flavor: sweet, with a sticky texture that makes it easier to eat
 with chopsticks
 Volume: quiet
-Tip: Soak sticky rice overnight before steaming.
+Tips: Soak sticky rice overnight before steaming.
 Techniques: boil, then steam
 Ratio: 1:1⅓ (1 cup sticky rice to 1⅓ cups cooking liquid, e.g.,
 stock, water)
@@ -38793,12 +38786,12 @@ virtually anything—especially raw food.”
 "****** DEMO - www.ebook-converter.com*******"
 SALT, KOSHER
 Volume: loud
-Tip: Use kosher salt as an everyday salt for bolder-flavored or
+Tips: Use kosher salt as an everyday salt for bolder-flavored or
 heavier dishes.
 "****** DEMO - www.ebook-converter.com*******"
 SALT, SEA
 Volume: moderate
-Tip: Use sea salt as an everyday salt for most dishes, especially
+Tips: Use sea salt as an everyday salt for most dishes, especially
 to flavor dishes that are served cold.
 "****** DEMO - www.ebook-converter.com*******"
 SALT, SMOKED
@@ -38810,7 +38803,7 @@ potatoes, e.g., baked
 "****** DEMO - www.ebook-converter.com*******"
 SALT, TRUFFLE
 Flavor: salty, with earthy notes of truffles
-Tip: Add just before serving.
+Tips: Add just before serving.
 
 celery root
 eggs and egg dishes
@@ -38821,7 +38814,7 @@ salads
 vegetables, e.g., root
 "****** DEMO - www.ebook-converter.com*******"
 SALTINESS
-Tip: Adding salt to a dish diminishes the effects of bitter, sour,
+Tips: Adding salt to a dish diminishes the effects of bitter, sour,
 and sweet flavors. Below are some ways to add saltiness to a
 dish.
 
@@ -39506,10 +39499,7 @@ You can easily make your own seitan from scratch with vital
 Possible substitutes: tempeh, extra-firm or super-firm tofu
 
 Asian cuisines
-barbecue sauce
-
-"****** DEMO - www.ebook-converter.com*******"
-basil and Thai basil
+barbecue saucebasil and Thai basil
 bay leaf
 beans, e.g., black, green, pinto, red
 bell peppers
@@ -40735,7 +40725,7 @@ soy sauce + Thai basil + tofu
 SOY SAUCE)
 Flavor: salty, with a thin, watery texture
 Volume: moderate
-Tip: Use instead of fermented fish sauce in Southeast Asian
+Tips: Use instead of fermented fish sauce in Southeast Asian
 dishes.
 Brand: Healthy Boy
 
@@ -41355,7 +41345,7 @@ Volume: quiet
 Calories: 20 calories per 1-cup serving
 Protein: 3 grams
 Techniques: raw, steam, stir-fry
-Tip: Cook quickly, if at all, to preserve nutrients.
+Tips: Cook quickly, if at all, to preserve nutrients.
 
 beets
 carrots
@@ -41450,8 +41440,8 @@ Volume: quiet
 Nutritional profile: 70% carbs / 25% protein / 5% fat
 Calories: 30 per 1-cup serving (raw)
 Protein: 3 grams
-Techniques: sauté, steam, stir-fry (just 30 seconds, to maintain
-sprouts’ crispy texture) (Note: never raw)
+Techniques: never raw, sauté, steam, stir-fry (just 30 seconds, to maintain
+sprouts’ crispy texture)
 Factoid: the most-consumed sprout worldwide
 
 Asian cuisines
@@ -42737,7 +42727,7 @@ Brand: Better Than Bouillon’s “No Chicken Vegan Base,”
 chicken-flavored bouillon
 "****** DEMO - www.ebook-converter.com*******"
 STOCK, MUSHROOM
-Tip: Use a mushroom stock (made from several of the
+Tips: Use a mushroom stock (made from several of the
 ingredients below) as an earthier, bolder alternative to vegetable
 stock in many heartier dishes, such as mushroom-based pastas,
 risottos, sauces, and soups.
@@ -44130,7 +44120,7 @@ Techniques: dry-roast, sauté, simmer
 Timing: Presoak; toast grains before cooking; cook about 15–20
 minutes, covered.
 Ratio: 1:4 (1 cup teff to 4 cups cooking liquid)
-Tip: Due to its tiny size, teff is always a whole grain.
+Tips: Due to its tiny size, teff is always a whole grain.
 
 (North) African cuisine
 allspice
@@ -44907,7 +44897,7 @@ sauces, e.g., tomato
 stews
 "****** DEMO - www.ebook-converter.com*******"
 TOFU, JAPANESE
-Tip: Use when you’re looking for the softest texture.
+Tips: Use when you’re looking for the softest texture.
 "****** DEMO - www.ebook-converter.com*******"
 TOFU, SCRAMBLED
 Tips: Substitute crumbled firm or extra-firm tofu for scrambled
@@ -46389,7 +46379,7 @@ Flavor: ranges from slightly to very sour
 Volume: ranges from quieter–louder
 Nutritional profile: virtually 100% carbs
 Calories: 25 (cider, wine)–100 (balsamic) per ½ cup
-Tip: Can act as a flavor enhancer to many dishes
+Tips: Can act as a flavor enhancer to many dishes
 Possible substitutes: lemon juice, lime juice, tamarind paste,
 verjus, wine
 
@@ -46640,7 +46630,7 @@ sauces
 WINE–IN GENERAL)
 Flavor: sour–very sour
 Volume: moderate (e.g., young)–loud (e.g., aged)
-Tip: Red wine vinegar can stand up to spices and stronger herbs.
+Tips: Red wine vinegar can stand up to spices and stronger herbs.
 Possible substitutes: balsamic vinegar, sherry vinegar, white
 wine vinegar
 
@@ -46775,7 +46765,7 @@ love using it with extra-virgin olive oil, and for marinades.”
 VINEGAR, UMEBOSHI PLUM (or UME PLUM)
 Flavor: sour/salty, with fruity notes of lemon
 Volume: moderate
-Tip: While not technically a vinegar, umeboshi brine may be
+Tips: While not technically a vinegar, umeboshi brine may be
 substituted for vinegar and salt as an instant flavor enhancer.
 
 beans
@@ -46796,7 +46786,7 @@ vegetables, e.g., steamed
 VINEGAR, WHITE WINE
 Flavor: sour/sweet
 Volume: quiet–moderate
-Tip: Opt for white wine vinegar for lighter-colored foods (e.g.,
+Tips: Opt for white wine vinegar for lighter-colored foods (e.g.,
 cauliflower), as red wine vinegar may affect their color.
 Possible substitutes: champagne vinegar, cider vinegar, rice wine
 vinegar
@@ -46825,7 +46815,7 @@ vegetables, e.g., grilled
 VINEGAR, WINE—IN GENERAL
 Flavor: sour, with notes of fruit (e.g., grapes)
 Volume: quiet–moderate
-Tip: Opt for high-quality, unpasteurized red or white wine
+Tips: Opt for high-quality, unpasteurized red or white wine
 vinegar.
 Possible substitute: cider vinegar
 

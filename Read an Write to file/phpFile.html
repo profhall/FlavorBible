@@ -6,10 +6,14 @@
     <script type="application/javascript" charset="utf-8">
         var textByLine = null;
         var FlavorAffOrDishes;
-        var oldflavor = "";
+        var Oldflavor = "";
         var seenFA=false;
         var seenDishes=false;
         var seenBlankLine = false;
+        var seenTips = false;
+        var TipsText = null;
+        var TechniquesText = null;
+        var seenTechniques = false;
 
         var Flavors = {
             "A":[],
@@ -59,7 +63,7 @@
                 var OldLine;
                 var Flavor;
                 var flavors = 0;
-                var Oldflavor ="";
+                //Oldflavor ="";
                 $.each(fileByLine, function(i, val) {
                     //FlavorAffOrDishes = true;
                     //newline = val;
@@ -112,35 +116,110 @@
 
                         FlavorProf(Flavor, Line);
 
+
                         if (OldLine.length < 1) {
                             seenBlankLine = true;
                         }
 
+                        if (Line.includes("Tips:")) {
+                            seenTips = true;
+                           // alert(Line)
+                        }
+                        else if(Line.includes(":") || Line.length < 1){
+                            seenTips = false;
+                        }
+
+                        if (Line.includes("Techniques:")) {
+                            seenTechniques = true;
+                            // alert(Line)
+                        }
+                        else if(Line.includes(":") || Line.length < 1){
+                            seenTechniques = false;
+                        }
+                         /**make the same if statements for
+                         * Flavor Affinities
+                         * Dishes
+                         * Botanical relatives
+                         * What it is
+                         * Possible substitutes
+                         * Timing
+                         * Ratio
+                         * *******
+                         * factoid: (add to flav prof)
+                         * Brand: (add to flav prof)
+                         * Who says it’s healthful (add to flav prof)
+                         * * **/
+
+
+
                         if(seenBlankLine==true || (!Line.includes("+") && !Line.includes(":") && (Oldflavor || Oldflavor =="")) ){
                             if (Line.includes("Flavor Affinities")) seenFA=true;
                             if (Line.includes("Dishes")) seenDishes=true;
-                            if(Oldflavor == Flavor ){
-                                if(seenBlankLine==true && seenFA == false && seenDishes == false && Line != '"****** DEMO - www.ebook-converter.com*******"' ){
+                            if(Oldflavor == Flavor ) {
+                                if (seenBlankLine == true && seenFA == false && seenDishes == false && Line != '"****** DEMO - www.ebook-converter.com*******"') {
                                     //console.log("Previous Line >>> " + OldLine +"\ningredient >>> " + Line + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor +
-                                      // "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
+                                    // "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
                                     addIngredients(Line, Flavor);
                                 }
                                 //else{
-                                   //console.log("Previous Line >>> " + OldLine +"\ningredient >>> " + Line + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor +
-                                     //  "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
+                                //console.log("Previous Line >>> " + OldLine +"\ningredient >>> " + Line + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor +
+                                //  "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
                                 //}
+                                if(seenTips == true){
+
+                                    if(!Line.includes(":")){
+                                        Line = Line+ "Tips:";
+                                        //console.log("In Tips:  " + Line+ "\nSee Tips: " + seenTips + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor );
+                                        FlavorProf(Flavor, Line);
+                                    }
+                                    else{
+                                        seenTips =false;
+                                    }
+                                }
+
+                                if(seenTechniques == true){
+
+                                    if(!Line.includes(":")){
+                                        Line = Line+ "Techniques:";
+                                        //console.log("In Techniques:  " + Line+ "\nSee Techniques: " + seenTips + "\n Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor );
+                                        FlavorProf(Flavor, Line);
+                                    }
+                                    else{
+                                        seenTips =false;
+                                    }
+                                }
+
+                                /**make the same if statements for
+                                 * Flavor Affinities
+                                 * Dishes
+                                 * Botanical relatives
+                                 * Who says it’s healthful
+                                 * What it is
+                                 * Possible substitutes
+                                 * Timing
+                                 * Ratio
+                                 * factoid:
+                                 * Brand:
+                                 *
+                                 * **/
+
                             }
                             else{
                                 seenFA = false;
                                 seenDishes = false;
+                                seenTips =false;
+                                TipsText = null;
+                                seenTechniques =false;
+                                TechniquesText = null;
+
                                 if (OldLine.length < 1)
                                     seenBlankLine = true;
                                     //console.log(OldLine.length)
                                 else
                                     seenBlankLine = false;
-                                //console.log("FLAVOR CHANGE! \n" + "Previous Line >>> " + OldLine + "\nCurrent line >>> " + Line +
-                                   // "\nNew Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor+
-                                    //"\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
+                                console.log("FLAVOR CHANGE! \n" + "Previous Line >>> " + OldLine + "\nCurrent line >>> " + Line +
+                                    "\nNew Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor+
+                                    "\nSeen Blank Line?:"+ seenBlankLine+"\nSeen Dishes?:"+ seenDishes+"\nSeen FA?:"+ seenFA);
                                 //console.log("FLAVOR CHANGE! \n" +
                                   //  "\nNew Flavor >>"+ Flavor+ "\n Old Flavor >>"+ Oldflavor);
                             }
@@ -368,35 +447,33 @@
                     addItem(Flavor, What_it_isText, letter, "What it is" )
                 }
                 else if(Line.includes("Techniques:") ){
-                    TechniquesText = Line;
+                    if (Flavor==Oldflavor){
+                        if (TechniquesText) {
+                            TechniquesText += Line + " ";
+                        }
+                        else if(!TechniquesText){
+                            TechniquesText = Line;
+                        }
+                    }
                     //console.log(Flavor+ "\n" +What_it_isText );
                     letter = Flavor.charAt(0);
                     TechniquesText = TechniquesText.replace("Techniques: ", "");
                     addItem(Flavor, TechniquesText, letter, "Techniques" )
                 }
                 else if(Line.includes("Tips:") ){
-                    if(!Line.includes(".")){
-                        TipsText = Line+ " " + lookahead;
-                        if(!lookahead.includes(".") || lookahead.slice(-1) != "."){
-                            TipsText = TipsText+ " " + lookaheadTwoSpots;
-                            if(!lookaheadTwoSpots.includes(".") || lookaheadTwoSpots.slice(-1) != "." ){
-                                TipsText = TipsText+ " " + lookaheadthreeSpots;
-                            }
+                    console.log(Flavor + " : "+ Oldflavor)
+                    if (Flavor==Oldflavor){
+                        if (TipsText) {
+                            TipsText += Line + " ";
+                        }
+                        else if(!TipsText){
+                            TipsText = Line;
                         }
                     }
-                    else
-                        TipsText = Line;
                    // console.log(Flavor+ "\n" +What_it_isText );
                     letter = Flavor.charAt(0);
-                    TipsText = TipsText.replace("Tips: ", "");
+                    TipsText = TipsText.replace("Tips:", "");
                     addItem(Flavor, TipsText, letter, "Tips" )
-                }
-                else if(Line.includes("Tip:") ){
-                    TipsText = Line;
-                    //console.log(Flavor+ "\n" +What_it_isText );
-                    letter = Flavor.charAt(0);
-                    TipsText = TipsText.replace("Tip: ", "");
-                    addItem(Flavor, TipsText, letter, "Tip" )
                 }
                 else if(Line.includes("Weather:") ){
                     WeatherText = Line;
@@ -426,12 +503,12 @@
                     ProteinText = ProteinText.replace("Protein: ", "");
                     addItem(Flavor, ProteinText, letter, "Protein" )
                 }
-                else if(Line.includes("Botanical Relatives:") ){
+                else if(Line.includes("Botanical relatives:") ){
                     BRText = Line;
-                    //console.log(Flavor+ "\n" +CaloriesText );
+                    //console.log(Flavor+ "\n" +BRText );
                     letter = Flavor.charAt(0);
-                    BRText = BRText.replace("Botanical Relatives: ", "");
-                    addItem(Flavor, BRText, letter, "Botanical Relatives" )
+                    BRText = BRText.replace("Botanical relatives: ", "");
+                    addItem(Flavor, BRText, letter, "Botanical relatives" )
                 }
                 else if(Line.includes("Gluten-free:") ){
                     GlutenFreeText = Line;
@@ -516,13 +593,13 @@
                            if (Flavors[letter][i].name == Flavor )
                                Flavors[letter][i].Whats_healthful_about_it = profileItemText;
                            break;
-                       case "Tips" || "Tip":
+                       case "Tips":
                            if (Flavors[letter][i].name == Flavor )
                                Flavors[letter][i].Tips = profileItemText;
                            break;
-                       case "Botanical Relatives":
+                       case "Botanical relatives":
                            if (Flavors[letter][i].name == Flavor )
-                               Flavors[letter][i].Botenical_Relatives = profileItemText;
+                               Flavors[letter][i].Botenical_relatives = profileItemText;
                            break;
                        case "Nutritional profile":
                            if (Flavors[letter][i].name == Flavor )
