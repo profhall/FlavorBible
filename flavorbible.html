@@ -29,10 +29,12 @@
 
     letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
     $(document).ready(function(){
-        Populate('A');
+        Populate("A")
+        $('ul.tabs').tabs();
+
     $.each(letters, function (index, value) {
         console.log(value);
-        searchLetter = '<li class="tab col s3" id="'+value+'"><a href="">'+value+'</a></li> ';
+        searchLetter = '<li style="border: dashed yellow" class="tab s6" id="'+value+'"><a href=""><h5>'+value+'</h5></a></li> ';
         $("#letterMenu").append(searchLetter);
         //console.log(searchLetter);
 
@@ -41,6 +43,8 @@
     $('#letterMenu li').click(function(){
         console.log(this.id);
         Populate(this.id)
+        $("#loader").hide();
+        $("#list").show();
     });
 
     //letters = ['A','B'];
@@ -52,7 +56,7 @@
             flavor_letter = firebase.database().ref(letter);
             //console.log("Letter: " + letter);
             //iterate through Flavors with a letter
-
+            $("#letter").html(letter);
             flavor_letter.on("value", function (snapshot) {
                 for (i = 0; i < snapshot.val().length; i++) {
                     // console.log(snapshot.val()[i].name);
@@ -120,7 +124,8 @@
                 $("#FlavorbibletTable").html(Flavor);
             }, function (error) {
                 console.log("Error: " + error.code);
-            });
+            } );
+            $("#FlavorbibletTable").html(Flavor);
 
         }
 
@@ -139,8 +144,8 @@
 
         }, function (error) {
             console.log("Error: " + error.code);
-
         });
+
     }
         //$("#letterMenu").on("click","li", function(){
           //  alert(this.id);
@@ -153,9 +158,8 @@
 </head>
 <body>
 <div class="row">
-    <div class="col s12" style="max-height: 20vh; overflow: scroll;">
+    <div class="col s12" style="max-height: 20vh;">
         <div class="row">
-
             <div class="col s12">
                 <form>
                     <div class="input-field">
@@ -165,14 +169,16 @@
                 </form>
             </div>
             <div class="col s12" style="">
-
                 <ul class="tabs" id="letterMenu" style=""></ul>
             </div>
         </div>
     </div>
     <div class="col s12" style="max-height: 80vh; overflow: scroll;">
-        <div>
-            <ul id="FlavorbibletTable" class="collapsible" data-collapsible="accordion"></ul>
+
+        <div id="list">
+            <h4><span id="letter"></span> Flavors </h4>
+            <ul id="FlavorbibletTable" class="collapsible" data-collapsible="accordion">
+            </ul>
         </div>
     </div>
 </div>
