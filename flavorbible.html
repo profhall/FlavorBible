@@ -29,6 +29,7 @@
 
     letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
     $(document).ready(function(){
+        search();
         Populate("A")
         $('ul.tabs').tabs();
 
@@ -42,7 +43,7 @@
 
     $('#letterMenu li').click(function(){
         console.log(this.id);
-        Populate(this.id)
+        Populate(this.id);
         $("#loader").hide();
         $("#list").show();
     });
@@ -120,7 +121,6 @@
                             '</li>';
                     }
                 }
-
                 $("#FlavorbibletTable").html(Flavor);
             }, function (error) {
                 console.log("Error: " + error.code);
@@ -150,6 +150,34 @@
         //$("#letterMenu").on("click","li", function(){
           //  alert(this.id);
         //});
+        $( "#searchbar" ).submit(function() {
+            term = $("#searchTerm").val();
+            search(term);
+
+        });
+
+
+        function search(term){
+            //a = database;
+            flavor_letter = firebase.database().ref("A");
+            //console.log("Letter: " + letter);
+            //iterate through Flavors with a letter
+            flavor_letter.on("value", function (snapshot) {
+                for (i = 0; i < snapshot.val().length; i++) {
+                    //console.log(snapshot.val().length);
+                    obj = snapshot.val()[i];
+                    //console.log(obj.name);
+                    if (obj.Volume) {
+                        if (obj.Volume.includes(term)) {
+                            console.log(obj.Volume);
+                        }
+                    }
+                }
+
+            });
+
+
+        };
     });
 
 
@@ -161,9 +189,9 @@
     <div class="col s12" style="max-height: 20vh;">
         <div class="row">
             <div class="col s12">
-                <form>
+                <form id="searchbar">
                     <div class="input-field">
-                        <input id="search" type="search" placeholder="Search for a flavor or term">
+                        <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
                         <i class="material-icons">close</i>
                     </div>
                 </form>
