@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
 
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,6 +14,14 @@
 
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: black;
+        color:#688037;
+
+    }
+</style>
 
 <script>
     // Initialize Firebase
@@ -35,7 +44,7 @@
 
     $.each(letters, function (index, value) {
         console.log(value);
-        searchLetter = '<li class="tab s6" id="'+value+'"><a href=""><h5>'+value+'</h5></a></li> ';
+        searchLetter = '<li class="tab s6" id="'+value+'"><a href=""><h5 style="color:#688037;" >'+value+'</h5></a></li> ';
         $("#letterMenu").append(searchLetter);
         //console.log(searchLetter);
 
@@ -264,29 +273,32 @@
 
 </head>
 <body>
-<div class="row">
-    <div class="col s12" style="max-height: 20vh;">
-        <div class="row">
-            <div class="col s12">
-                <form id="searchbar" action="">
-                    <div class="input-field">
-                        <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
-            </div>
-            <div class="col s12" style="">
-                <ul class="tabs" id="letterMenu" style=""></ul>
-            </div>
+<div  style="max-height: 100vh; display: flex; flex-direction: column; /*added*/">
+    <div class="row">
+        <div class="col s12 center-align" style=" margin: auto;">
+            <h3 class=""><span style="color: #688037;">The Vegetarian</span><span style="color: #D18743;"> Flavor </span><span style="color:#982C29 ;">Bible</span> <span style="font-size:12px "><u><i> In Your Pocket</i></u></span> </h3>
+
+            <a style="width: 98%; margin: auto;" class='dropdown-button btn amber accent-4' href='#' data-activates='dropdown1'>ABOUT</a>
+
+            <ul style="width: 100%" id='dropdown1' class='dropdown-content'>
+                <li><a href="#">These are flavors from the vrgetarian flavor bible by...</a></li>
+            </ul>
         </div>
     </div>
-    <div class="col s12" style="max-height: 80vh; overflow: scroll;">
-
-
-        <div id="list">
-            <h4 id="headerTitle"> </h4>
-            <ul id="FlavorbibletTable" class="collapsible" data-collapsible="accordion"></ul>
-        </div>
+    <div class="col s12" style="max-height:">
+        <form id="searchbar" action="">
+            <div class="input-field">
+                <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
+                <i class="material-icons">close</i>
+            </div>
+        </form>
+        <ul class="tabs" id="letterMenu" ></ul>
+        <h4 id="headerTitle"> </h4>
+    </div>
+    <div class="col s12" style="overflow-y: auto;overflow-x: hidden; flex: 1;">
+            <div id="list" style="" >
+                <ul style="" id="FlavorbibletTable" class="collapsible" data-collapsible="accordion"></ul>
+            </div>
     </div>
 </div>
 
