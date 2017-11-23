@@ -95,7 +95,7 @@
                             for (c = 0; c< snapshot.val()[i].Ingredients.length; c++) {
                                 Flavor += '<li class="collection-item">' + snapshot.val()[i].Ingredients[c] + "</li>"
                             }
-                            Flavor += '</ul> '
+                            Flavor += '</ul> <hr>'
                         }
                         if (snapshot.val()[i].Flavor_Affinities) {
                             Flavor += '<b> Flavor Affinities: </b><br> ' ;
@@ -103,7 +103,7 @@
                             for (c = 0; c< snapshot.val()[i].Flavor_Affinities.length; c++) {
                                 Flavor += '<li class="collection-item">' + snapshot.val()[i].Flavor_Affinities[c] + "</li>"
                             }
-                            Flavor += '</ul> '
+                            Flavor += '</ul><hr> '
                         }
                         if (snapshot.val()[i].Botenical_relatives) {
                             Flavor += '<p><b>Botanical Relatives: </b>' + snapshot.val()[i].Botenical_relatives + '</p> '
