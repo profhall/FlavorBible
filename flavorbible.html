@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCYW-VO1imgLh96o3umE_Ex3ae01xxr1sk",
+        authDomain: "the-flavor-bible.firebaseapp.com",
+        databaseURL: "https://the-flavor-bible.firebaseio.com",
+        projectId: "the-flavor-bible",
+        storageBucket: "",
+        messagingSenderId: "532840416879"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+
+    var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
+    $(document).ready(function(){
+        search();
+        Populate("A")
+        $('ul.tabs').tabs();
+
+    $.each(letters, function (index, value) {
+        console.log(value);
+        searchLetter = '<li style="border: dashed yellow" class="tab s6" id="'+value+'"><a href=""><h5>'+value+'</h5></a></li> ';
+        $("#letterMenu").append(searchLetter);
+        //console.log(searchLetter);
+
+    });
+
+    $('#letterMenu li').click(function(){
+        console.log(this.id);
+        Populate(this.id);
+        $("#loader").hide();
+        $("#list").show();
+    });
+
+    //letters = ['A','B'];
+    //letter = "B";
+    //letter = letters[Math.floor(Math.random()*letters.length)];
+    function Populate(letter) {
+        var Flavor = "";
+        for (lSpot = 0; lSpot < letter.length; lSpot++) {
+            flavor_letter = firebase.database().ref(letter);
+            //console.log("Letter: " + letter);
+            //iterate through Flavors with a letter
+            $("#headerTitle").html("<b><u>"+letter + "</u></b> flavors");
+            flavor_letter.on("value", function (snapshot) {
+                for (i = 0; i < snapshot.val().length; i++) {
+                    // console.log(snapshot.val()[i].name);
+                    //ingredients = snapshot.val()[i].Ingredients;
+                    if(snapshot.val()[i]) {
+                        Flavor += '<li> <div class="collapsible-header"> <i class="material-icons">filter_drama</i>' + snapshot.val()[i].name + '</div>' +
+                            ' <div class="collapsible-body">';
+                        if (snapshot.val()[i].Flavor) {
+                            Flavor += '<p><b>Flavor: </b>' + snapshot.val()[i].Flavor + '</p> '
+                        }
+                        if (snapshot.val()[i].Possible_substitutes) {
+                            Flavor += '<p><b>Possible Substitutions: </b>' + snapshot.val()[i].Possible_substitutes + '</p> '
+                        }
+                        if (snapshot.val()[i].Season) {
+                            Flavor += '<p><b>Season: </b>' + snapshot.val()[i].Season + '</p> '
+                        }
+                        if (snapshot.val()[i].Volume) {
+                            Flavor += '<p><b>Volume: </b>' + snapshot.val()[i].Volume + '</p> '
+                        }
+                        if (snapshot.val()[i].Flavor_Affinities) {
+                            Flavor += '<p><b>Flavor Affinities count: </b>' + snapshot.val()[i].Flavor_Affinities.length + '</p> '
+                        }
+                        if (snapshot.val()[i].Ingredients) {
+                            Flavor += '<p> <b> Pairing ingredient count: </b>' + snapshot.val()[i].Ingredients.length + '</p> '
+                        }
+                        if (snapshot.val()[i].What_it_is) {
+                            Flavor += '<p><b>What it is: </b>' + snapshot.val()[i].What_it_is + '</p> '
+                        }
+                        if (snapshot.val()[i].Techniques) {
+                            Flavor += '<p><b>Techniques: </b>' + snapshot.val()[i].Techniques + '</p> '
+                        }
+                        if (snapshot.val()[i].Protein) {
+                            Flavor += '<p><b>Protein: </b>Protein: ' + snapshot.val()[i].Protein + '</p> '
+                        }
+                        if (snapshot.val()[i].Whats_healthful_about_it) {
+                            Flavor += '<p> What\'s healthful about it: ' + snapshot.val()[i].Whats_healthful_about_it + '</p> '
+                        }
+                        if (snapshot.val()[i].Tips) {
+                            Flavor += '<p> <b>Tips: </b>' + snapshot.val()[i].Tips + '</p> '
+                        }
+                        if (snapshot.val()[i].Botenical_relatives) {
+                            Flavor += '<p><b>Botanical Relatives: </b>' + snapshot.val()[i].Botenical_relatives + '</p> '
+                        }
+                        if (snapshot.val()[i].Nutritional_profile) {
+                            Flavor += '<p><b>Nutritional Profile: </b>' + snapshot.val()[i].Nutritional_profile + '</p> '
+                        }
+                        if (snapshot.val()[i].Calories) {
+                            Flavor += '<p><b>Calories: </b>' + snapshot.val()[i].Calories + '</p> '
+                        }
+                        if (snapshot.val()[i].Weather) {
+                            Flavor += '<p><b>Weather: </b>' + snapshot.val()[i].Weather + '</p> '
+                        }
+                        if (snapshot.val()[i].Ratio) {
+                            Flavor += '<p><b>Ratio: </b> ' + snapshot.val()[i].Ratio + '</p> ';
+                        }
+                        if (snapshot.val()[i].Timing) {
+                            Flavor += '<p> <b>Timing: </b>' + snapshot.val()[i].Timing + '</p>';
+                        }
+
+                        Flavor += '</div> ' +
+                            '</li>';
+                    }
+                }
+                $("#FlavorbibletTable").html(Flavor);
+            }, function (error) {
+                console.log("Error: " + error.code);
+            } );
+            $("#FlavorbibletTable").html(Flavor);
+
+        }
+
+        selectFlavor = "BANANAS";
+        //get flavor information BASED ON NAME
+        flavor_letter.on("value", function (snapshot) {
+
+            for (i = 0; i < snapshot.val().length; i++) {
+                if (snapshot.val()[i].name == selectFlavor) {
+                    console.log(snapshot.val()[i]);
+
+
+                }
+            }
+
+
+        }, function (error) {
+            console.log("Error: " + error.code);
+        });
+
+    }
+        //$("#letterMenu").on("click","li", function(){
+          //  alert(this.id);
+        //});
+        $( "#searchbar" ).submit(function() {
+            term = $("#searchTerm").val();
+            search(term);
+
+        });
+
+
+        function search(term) {
+            //a = database;
+            var Flavor = "";
+            for (c=0; c < letters.length; c++)
+            {
+                letter = letters[c];
+                flavor_letter = firebase.database().ref(letter);
+
+                flavor_letter.on("value", function (snapshot) {
+                    for (i = 0; i < snapshot.val().length; i++) {
+                        //console.log(snapshot.val().length);
+                        obj = snapshot.val()[i];
+                        if (obj.Volume) {
+
+                            if (obj.Volume.toLowerCase().includes(term.toLowerCase()) || obj.name.toLowerCase().includes(term.toLowerCase()) || obj.Flavor.toLowerCase().includes(term.toLowerCase())) {
+                                //console.log(obj.Volume);
+                                Flavor += '<li> <div class="collapsible-header"> <i class="material-icons">filter_drama</i>' + obj.name + '</div>' +
+                                    ' <div class="collapsible-body">';
+                                if (obj.Flavor) {
+                                    Flavor += '<p><b>Flavor: </b>' + obj.Flavor + '</p> '
+                                }
+                                if (obj.Possible_substitutes) {
+                                    Flavor += '<p><b>Possible Substitutions: </b>' + obj.Possible_substitutes + '</p> '
+                                }
+                                if (obj.Season) {
+                                    Flavor += '<p><b>Season: </b>' + obj.Season + '</p> '
+                                }
+                                if (obj.Volume) {
+                                    Flavor += '<p><b>Volume: </b>' + obj.Volume + '</p> '
+                                }
+                                if (obj.Flavor_Affinities) {
+                                    Flavor += '<p><b>Flavor Affinities count: </b>' + obj.Flavor_Affinities.length + '</p> '
+                                }
+                                if (obj.Ingredients) {
+                                    Flavor += '<p> <b> Pairing ingredient count: </b>' + obj.Ingredients.length + '</p> '
+                                }
+                                if (obj.What_it_is) {
+                                    Flavor += '<p><b>What it is: </b>' + obj.What_it_is + '</p> '
+                                }
+                                if (obj.Techniques) {
+                                    Flavor += '<p><b>Techniques: </b>' + obj.Techniques + '</p> '
+                                }
+                                if (obj.Protein) {
+                                    Flavor += '<p><b>Protein: </b>' + obj.Protein + '</p> '
+                                }
+                                if (obj.Whats_healthful_about_it) {
+                                    Flavor += '<p> What\'s healthful about it: ' + obj.Whats_healthful_about_it + '</p> '
+                                }
+                                if (obj.Tips) {
+                                    Flavor += '<p> <b>Tips: </b>' + obj.Tips + '</p> '
+                                }
+                                if (obj.Botenical_relatives) {
+                                    Flavor += '<p><b>Botanical Relatives: </b>' + obj.Botenical_relatives + '</p> '
+                                }
+                                if (obj.Nutritional_profile) {
+                                    Flavor += '<p><b>Nutritional Profile: </b>' + obj.Nutritional_profile + '</p> '
+                                }
+                                if (obj.Calories) {
+                                    Flavor += '<p><b>Calories: </b>' + obj.Calories + '</p> '
+                                }
+                                if (obj.Weather) {
+                                    Flavor += '<p><b>Weather: </b>' + obj.Weather + '</p> '
+                                }
+                                if (obj.Ratio) {
+                                    Flavor += '<p><b>Ratio: </b> ' + obj.Ratio + '</p> ';
+                                }
+                                if (obj.Timing) {
+                                    Flavor += '<p> <b>Timing: </b>' + obj.Timing + '</p>';
+                                }
+
+                                Flavor += '</div> ' +
+                                    '</li>';
+                            }
+                        }
+                    }
+
+                });
+            }
+            $("#FlavorbibletTable").html(Flavor);
+            $("#headerTitle").html("<b>"+term+"</b> results" );
+
+
+
+        };
+    });
+
+
+</script>
+
+</head>
+<body>
+<div class="row">
+    <div class="col s12" style="max-height: 20vh;">
+        <div class="row">
+            <div class="col s12">
+                <form id="searchbar" action="#">
+                    <div class="input-field">
+                        <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12" style="">
+                <ul class="tabs" id="letterMenu" style=""></ul>
+            </div>
+        </div>
+    </div>
+    <div class="col s12" style="max-height: 80vh; overflow: scroll;">
+
+        <div id="list">
+            <h4 id="headerTitle"> </h4>
+            <ul id="FlavorbibletTable" class="collapsible" data-collapsible="accordion">
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
