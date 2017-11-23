@@ -156,7 +156,8 @@
         //$("#letterMenu").on("click","li", function(){
           //  alert(this.id);
         //});
-        $( "#searchbar" ).submit(function() {
+        $( "#searchbar" ).submit(function(evt) {
+            evt.preventDefault();
             term = $("#searchTerm").val();
             search(term);
 
@@ -194,10 +195,19 @@
                                     Flavor += '<p><b>Volume: </b>' + obj.Volume + '</p> '
                                 }
                                 if (obj.Flavor_Affinities) {
-                                    Flavor += '<p><b>Flavor Affinities count: </b>' + obj.Flavor_Affinities.length + '</p> '
-                                }
+                                    Flavor += '<b> Pair With These Ingredients: </b><br> ' ;
+                                    Flavor += '<ul class="collection" style="max-height: 150px; overflow: auto;"> '
+                                    for (c = 0; c< obj.Flavor_Affinities.length; c++) {
+                                        Flavor += '<li class="collection-item">' + obj.Flavor_Affinities[c] + "</li>"
+                                    }
+                                    Flavor += '</ul> <hr>';                                }
                                 if (obj.Ingredients) {
-                                    Flavor += '<p> <b> Pairing ingredient count: </b>' + obj.Ingredients.length + '</p> '
+                                    Flavor += '<b> Pair With These Ingredients: </b><br> ';
+                                    Flavor += '<ul class="collection" style="max-height: 150px; overflow: auto;"> '
+                                    for (c = 0; c < obj.Ingredients.length; c++) {
+                                        Flavor += '<li class="collection-item">' + obj.Ingredients[c] + "</li>"
+                                    }
+                                    Flavor += '</ul> <hr>';
                                 }
                                 if (obj.What_it_is) {
                                     Flavor += '<p><b>What it is: </b>' + obj.What_it_is + '</p> '
@@ -258,7 +268,7 @@
     <div class="col s12" style="max-height: 20vh;">
         <div class="row">
             <div class="col s12">
-                <form id="searchbar" action="#">
+                <form id="searchbar" action="">
                     <div class="input-field">
                         <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
                         <i class="material-icons">close</i>
