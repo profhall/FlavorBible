@@ -35,7 +35,7 @@
 
     $.each(letters, function (index, value) {
         console.log(value);
-        searchLetter = '<li style="border: dashed yellow" class="tab s6" id="'+value+'"><a href=""><h5>'+value+'</h5></a></li> ';
+        searchLetter = '<li class="tab s6" id="'+value+'"><a href=""><h5>'+value+'</h5></a></li> ';
         $("#letterMenu").append(searchLetter);
         //console.log(searchLetter);
 
@@ -48,9 +48,6 @@
         $("#list").show();
     });
 
-    //letters = ['A','B'];
-    //letter = "B";
-    //letter = letters[Math.floor(Math.random()*letters.length)];
     function Populate(letter) {
         var Flavor = "";
         for (lSpot = 0; lSpot < letter.length; lSpot++) {
@@ -78,10 +75,22 @@
                             Flavor += '<p><b>Volume: </b>' + snapshot.val()[i].Volume + '</p> '
                         }
                         if (snapshot.val()[i].Flavor_Affinities) {
-                            Flavor += '<p><b>Flavor Affinities count: </b>' + snapshot.val()[i].Flavor_Affinities.length + '</p> '
+                            Flavor += '<b> Flavor Affinities: </b><br> ' ;
+                            Flavor += '<ul class="collection" style="max-height: 150px; overflow: auto;"> '
+
+                            for (c = 0; c< snapshot.val()[i].Flavor_Affinities.length; c++) {
+                                Flavor += '<li class="collection-item">' + snapshot.val()[i].Flavor_Affinities[c] + "</li>"
+                            }
+                            Flavor += '</ul> '
                         }
                         if (snapshot.val()[i].Ingredients) {
-                            Flavor += '<p> <b> Pairing ingredient count: </b>' + snapshot.val()[i].Ingredients.length + '</p> '
+                            Flavor += '<b> Pair With These Ingredients: </b><br> ' ;
+                            Flavor += '<ul class="collection" style="max-height: 150px; overflow: auto;"> '
+
+                            for (c = 0; c< snapshot.val()[i].Ingredients.length; c++) {
+                                Flavor += '<li class="collection-item">' + snapshot.val()[i].Ingredients[c] + "</li>"
+                            }
+                            Flavor += '</ul> '
                         }
                         if (snapshot.val()[i].What_it_is) {
                             Flavor += '<p><b>What it is: </b>' + snapshot.val()[i].What_it_is + '</p> '
@@ -266,10 +275,10 @@
     </div>
     <div class="col s12" style="max-height: 80vh; overflow: scroll;">
 
+
         <div id="list">
             <h4 id="headerTitle"> </h4>
-            <ul id="FlavorbibletTable" class="collapsible" data-collapsible="accordion">
-            </ul>
+            <ul id="FlavorbibletTable" class="collapsible" data-collapsible="accordion"></ul>
         </div>
     </div>
 </div>
