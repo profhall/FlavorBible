@@ -148,8 +148,13 @@
                 console.log("Error: " + error.code);
             });
         }
-
-        $( "#searchbar" ).submit(function() {
+        $('#searchTerm').keypress(function(event){
+            if(event.keyCode == 13){
+                term = $("#searchTerm").val();
+                search(term);
+            }
+        });
+        $( "#searchbutton" ).click(function() {
             term = $("#searchTerm").val();
             search(term);
         });
@@ -158,8 +163,9 @@
             var Flavor = "";
             for (c=0; c < letters.length; c++)
             {
-                letter = letters[c];
-                flavor_letter = database.ref(letter);
+                console.log(letters[c] + letters.length);
+                let = letters[c];
+                flavor_letter = database.ref(let);
                 //var i=0;
                 flavor_letter.on("value", function (snapshot)
                 {
@@ -251,20 +257,27 @@
         <div class="col s12 center-align" style=" margin: auto;">
             <h4 class=""><span style="color: #688037;">The Vegetarian</span><span style="color: #D18743;"> Flavor </span><span style="color:#982C29 ;">Bible</span> <span style="font-size:12px "><u><i> In Your Pocket</i></u></span> </h4>
 
-            <a style="width: 98%; margin: auto;" class='dropdown-button btn amber accent-4' href='#' data-activates='dropdown1'>ABOUT</a>
+            <a style="width: 98%; margin: auto;" class='dropdown-button btn amber accent-4' href='#' data-activates='dropdown1'>ABOUT </a>
 
             <ul style="width: 100%" id='dropdown1' class='dropdown-content'>
                 <li><a href="#">These are flavors from the vrgetarian flavor bible by...</a></li>
             </ul>
         </div>
     </div>
-    <div class="col s12" style="max-height:">
-        <form id="searchbar" action="">
-            <div class="input-field">
-                <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
-                <i class="material-icons">close</i>
+    <div class="col s12" >
+        <div class="row">
+            <div class="col s8" style="">
+                <div class="input-field">
+                    <input id="searchTerm" type="search" placeholder="Search for a flavor or term">
+                    <i class="material-icons">close</i>
+                </div>
             </div>
-        </form>
+            <div class="col s4" style="">
+                <a style="width: 98%; margin: auto;" id="searchbutton" class="waves-effect btn-large  light-green darken-4">Search</a>
+            </div>
+
+        </div>
+
         <ul class="tabs" id="letterMenu" ></ul>
         <h4 id="headerTitle"> </h4>
     </div>
