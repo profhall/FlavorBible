@@ -36,6 +36,7 @@
     var database = firebase.database();
     var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
     $(document).ready(function(){
+        search("a");
         Populate("A");
         $('ul.tabs').tabs();
 
@@ -158,15 +159,24 @@
             term = $("#searchTerm").val();
             search(term);
         });
+
+        /**
+         * Search function that searches the following categories for term entered:
+         * Flavor
+         * Tips
+         * Season
+         * Volume
+         * Name
+         */
         function search(term) {
             //a = database;
+            var letts = "";
             var Flavor = "";
             for (c=0; c < letters.length; c++)
             {
-                console.log(letters[c] + letters.length);
-                let = letters[c];
-                flavor_letter = database.ref(let);
-                //var i=0;
+                letts = letters[c];
+                flavor_letter = database.ref(letts);
+                //console.log("Letter is:" +letters[c] + "The length of object" + letters.length + " The object " + flavor_letter);
                 flavor_letter.on("value", function (snapshot)
                 {
                    //console.log(snapshot.val());
@@ -184,6 +194,7 @@
                             //console.log("name object: " + obj.name.toLowerCase() + " \nterm:" + term.toLowerCase());
                             if (obj.name.toLowerCase().includes(term.toLowerCase()) || (obj.Flavor && obj.Flavor.toLowerCase().includes(term.toLowerCase())) || (obj.Volume && obj.Volume.toLowerCase().includes(term.toLowerCase())) || (obj.Season && obj.Season.toLowerCase().includes(term.toLowerCase())) || (obj.Tips && obj.Tips.toLowerCase().includes(term.toLowerCase()))) {
                                 //console.log("spot: "+ i + " holds " + snapshot.val()[i].name);
+                               //
                                 Flavor += '<li> <div class="collapsible-header"> <i class="material-icons">filter_drama</i>' + obj.name + '</div>' +
                                     ' <div class="collapsible-body">';
                                 if (obj.Flavor) {
@@ -246,7 +257,7 @@
             }
             $("#FlavorbibletTable").html(Flavor);
             $("#headerTitle").html("<b>"+term+"</b> results" );
-        };
+        }
     });
 </script>
 
