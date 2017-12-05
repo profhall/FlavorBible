@@ -36,7 +36,7 @@
     var database = firebase.database();
     var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
     $(document).ready(function(){
-        search("a");
+        search("A");
         Populate("A");
         $('ul.tabs').tabs();
 
@@ -53,17 +53,19 @@
             $("#list").show();
         });
         function Populate(letter) {
+            var count = 0;
             var Flavor = "";
             for (lSpot = 0; lSpot < letter.length; lSpot++) {
                 flavor_letter = firebase.database().ref(letter);
                 //console.log("Letter: " + letter);
                 //iterate through Flavors with a letter
-                $("#headerTitle").html("<b><u>"+letter + "</u></b> flavors");
+                //$("#headerTitle").html("<b><u>"+letter + "</u></b> flavors");
                 flavor_letter.on("value", function (snapshot) {
                     for (i = 0; i < snapshot.val().length; i++) {
                         // console.log(snapshot.val()[i].name);
                         //ingredients = snapshot.val()[i].Ingredients;
                         if(snapshot.val()[i]) {
+                            count ++;
                             Flavor += '<li> <div class="collapsible-header"> <i class="material-icons">filter_drama</i>' + snapshot.val()[i].name + '</div>' +
                                 ' <div class="collapsible-body">';
                             if (snapshot.val()[i].Flavor) {
@@ -132,6 +134,8 @@
                         }
                     }
                     $("#FlavorbibletTable").html(Flavor);
+                    $("#headerTitle").html("<b><u>"+letter +"</u></b> flavors(" + count + ")");
+
                 }, function (error) {
                     console.log("Error: " + error.code);
                 } );
@@ -149,6 +153,7 @@
                 console.log("Error: " + error.code);
             });
         }
+
         $('#searchTerm').keypress(function(event){
             if(event.keyCode == 13){
                 term = $("#searchTerm").val();
@@ -170,6 +175,7 @@
          */
         function search(term) {
             //a = database;
+            var count = 0;
             var letts = "";
             var Flavor = "";
             for (c=0; c < letters.length; c++)
@@ -194,7 +200,7 @@
                             //console.log("name object: " + obj.name.toLowerCase() + " \nterm:" + term.toLowerCase());
                             if (obj.name.toLowerCase().includes(term.toLowerCase()) || (obj.Flavor && obj.Flavor.toLowerCase().includes(term.toLowerCase())) || (obj.Volume && obj.Volume.toLowerCase().includes(term.toLowerCase())) || (obj.Season && obj.Season.toLowerCase().includes(term.toLowerCase())) || (obj.Tips && obj.Tips.toLowerCase().includes(term.toLowerCase()))) {
                                 //console.log("spot: "+ i + " holds " + snapshot.val()[i].name);
-                               //
+                                count ++;
                                 Flavor += '<li> <div class="collapsible-header"> <i class="material-icons">filter_drama</i>' + obj.name + '</div>' +
                                     ' <div class="collapsible-body">';
                                 if (obj.Flavor) {
@@ -255,8 +261,11 @@
                     }
                 });
             }
+            if(count > 0 )
+                $("#headerTitle").html("<b>"+term+"</b>  results("+ count + ")" );
+            else
+                $("#headerTitle").html("loading..." );
             $("#FlavorbibletTable").html(Flavor);
-            $("#headerTitle").html("<b>"+term+"</b> results" );
         }
     });
 </script>
