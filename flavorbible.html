@@ -23,6 +23,7 @@
 </style>
 
 <script>
+    var loader = '<div class="preloader-wrapper big active "> <div class="spinner-layer spinner-yellow-only"> <div class="circle-clipper left"> <div class="circle"></div> </div> <div class="gap-patch"> <div class="circle"></div> </div> <div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div>'
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyCYW-VO1imgLh96o3umE_Ex3ae01xxr1sk",
@@ -32,12 +33,15 @@
         storageBucket: "",
         messagingSenderId: "532840416879"
     };
+
     firebase.initializeApp(config);
     var database = firebase.database();
     var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z'];
     $(document).ready(function(){
         search("A");
-        Populate("A");
+        //Populate("A");
+
+
         $('ul.tabs').tabs();
 
         $.each(letters, function (index, value) {
@@ -46,18 +50,28 @@
             $("#letterMenu").append(searchLetter);
             //console.log(searchLetter);
         });
+
         $('#letterMenu li').click(function(){
+            $("#headerTitle").html(loader);
+            $("#headerTitle").css('text-align','center');
             console.log(this.id);
-            Populate(this.id);
-            $("#loader").hide();
-            $("#list").show();
+            setTimeout(fillHTMLList(Populate(this.id)), 3000);
         });
+
+        function fillHTMLList(obj){
+            console.log(obj);
+            $("#headerTitle").html(obj[1]);
+            $("#FlavorbibletTable").html(obj[0]);
+        }
+
         function Populate(letter) {
+            alert("inside populate");
             var count = 0;
             var Flavor = "";
+            var head ;
             for (lSpot = 0; lSpot < letter.length; lSpot++) {
                 flavor_letter = firebase.database().ref(letter);
-                //console.log("Letter: " + letter);
+                //console.log(y"Letter: " + letter);
                 //iterate through Flavors with a letter
                 //$("#headerTitle").html("<b><u>"+letter + "</u></b> flavors");
                 flavor_letter.on("value", function (snapshot) {
@@ -133,25 +147,20 @@
                                 '</li>';
                         }
                     }
-                    $("#FlavorbibletTable").html(Flavor);
-                    $("#headerTitle").html("<b><u>"+letter +"</u></b> flavors(" + count + ")");
-
+                    //if(count > 0 ) {
+                        //$("#FlavorbibletTable").html(Flavor);
+                        //$("#headerTitle").html("<b><u>" + letter + "</u></b> flavors(" + count + ")");
+                        head = "<b><u>" + letter + "</u></b> flavors(" + count + ")";
+                        count=0
+                    //}
                 }, function (error) {
                     console.log("Error: " + error.code);
                 } );
-                $("#FlavorbibletTable").html(Flavor);
+                return [Flavor, head];
+
+                //$("#FlavorbibletTable").html(Flavor);
             }
-            selectFlavor = "BANANAS";
-            //get flavor information BASED ON NAME
-            flavor_letter.on("value", function (snapshot) {
-                for (i = 0; i < snapshot.val().length; i++) {
-                    if (snapshot.val()[i].name == selectFlavor) {
-                        console.log(snapshot.val()[i]);
-                    }
-                }
-            }, function (error) {
-                console.log("Error: " + error.code);
-            });
+
         }
 
         $('#searchTerm').keypress(function(event){
@@ -174,8 +183,11 @@
          * Name
          */
         function search(term) {
+            $("#headerTitle").html(loader);
+            $("#headerTitle").css('text-align','center');
             //a = database;
             var count = 0;
+
             var letts = "";
             var Flavor = "";
             for (c=0; c < letters.length; c++)
@@ -217,6 +229,12 @@
                                 }
                                 if (obj.Flavor_Affinities) {
                                     Flavor += '<p><b>Flavor Affinities count: </b>' + obj.Flavor_Affinities.length + '</p> '
+                                    /*Flavor += '<b> Flavor Affinities: </b><br> ' ;
+                                    Flavor += '<ul class="collection" style="max-height: 150px; overflow: auto;"> '
+                                    for (c = 0; c< obj.Flavor_Affinities.length; c++) {
+                                        Flavor += '<li class="collection-item">' + obj.Flavor_Affinities[c] + "</li>"
+                                    }
+                                    Flavor += '</ul><hr> '*/
                                 }
                                 if (obj.Ingredients) {
                                     Flavor += '<p> <b> Pairing ingredient count: </b>' + obj.Ingredients.length + '</p> '
@@ -261,11 +279,14 @@
                     }
                 });
             }
+
+
             if(count > 0 )
                 $("#headerTitle").html("<b>"+term+"</b>  results("+ count + ")" );
-            else
-                $("#headerTitle").html("loading..." );
+
+
             $("#FlavorbibletTable").html(Flavor);
+            count = 0
         }
     });
 </script>
